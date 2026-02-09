@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MedVoyage - Premium medical tourism connecting Africa to world-class hospitals in Egypt. Complete healthcare solutions with visa assistance, accommodation, and expert care.">
+<title>MedVoyage - Medical Tourism from Africa to Egypt</title>
+<link rel="icon" href="images/logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;color:#2C3E50;line-height:1.6;overflow-x:hidden;max-width:100vw}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+:root{--blue:#6B8CFF;--teal:#00D4D4;--orange:#FF6B35;--dark:#1A1A2E;--light:#F5F7FA;--white:#FFF}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 1.25rem}
+section{padding:2.5rem 0}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.2;margin-bottom:1rem}
+h1{font-size:clamp(2rem,5vw,3.5rem)}
+h2{font-size:clamp(1.75rem,4vw,2.75rem)}
+h3{font-size:clamp(1.25rem,3vw,1.75rem)}
+
+.header{position:fixed;top:0;left:0;right:0;background:#FFF;box-shadow:0 2px 20px rgba(0,0,0,0.08);z-index:1000;padding:0.75rem 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{height:50px;width:auto;object-fit:contain}
+.nav-menu{display:none;list-style:none;gap:2rem}
+@media(min-width:1024px){.nav-menu{display:flex}}
+.nav-link{font-weight:600;color:var(--dark);transition:color 0.3s;cursor:pointer}
+.nav-link:hover{color:var(--blue)}
+.menu-toggle{display:block;background:none;border:none;cursor:pointer;padding:0.5rem}
+@media(min-width:1024px){.menu-toggle{display:none}}
+.menu-toggle span{display:block;width:25px;height:2px;background:var(--dark);margin:5px 0;transition:0.3s}
+.mobile-nav{position:fixed;top:70px;left:0;right:0;background:#FFF;box-shadow:0 8px 30px rgba(0,0,0,0.1);max-height:0;overflow:hidden;transition:max-height 0.3s}
+.mobile-nav.active{max-height:400px}
+.mobile-nav-links{list-style:none;padding:1rem}
+.mobile-nav-links li{border-bottom:1px solid var(--light);padding:1rem 0}
+.mobile-nav-links a{display:block;font-weight:600;cursor:pointer}
+@media(min-width:1024px){.mobile-nav{display:none}}
+
+.hero{padding:6rem 0 2.5rem;background:linear-gradient(135deg,var(--blue),var(--teal));color:#FFF;min-height:85vh;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+@media(min-width:1024px){.hero-grid{grid-template-columns:1.2fr 1fr}}
+.hero h1{color:#FFF;margin-bottom:1.25rem}
+.hero p{font-size:1.2rem;margin-bottom:2rem;opacity:0.95}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem}
+.hero-img{border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.hero-img img{width:100%;height:auto;object-fit:cover;max-height:500px}
+
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:1rem 2rem;font-weight:700;border-radius:50px;cursor:pointer;transition:all 0.3s;border:none;text-align:center}
+.btn-primary{background:var(--orange);color:#FFF}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,107,53,0.4)}
+.btn-secondary{background:rgba(255,255,255,0.2);color:#FFF;border:2px solid #FFF}
+.btn-secondary:hover{background:#FFF;color:var(--blue)}
+.btn-outline{background:transparent;color:var(--blue);border:2px solid var(--blue)}
+.btn-outline:hover{background:var(--blue);color:#FFF}
+
+.card{background:#FFF;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:all 0.3s;cursor:pointer;height:100%}
+.card:hover{transform:translateY(-8px);box-shadow:0 12px 40px rgba(107,140,255,0.2)}
+.card-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--blue),var(--teal));color:#FFF;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin-bottom:1.25rem}
+.card h3{color:var(--blue);margin-bottom:0.75rem}
+.card p{color:#64748B;font-size:0.95rem}
+
+.grid{display:grid;gap:2rem}
+.grid-2{grid-template-columns:1fr}
+.grid-3{grid-template-columns:1fr}
+.grid-4{grid-template-columns:1fr}
+@media(min-width:640px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:768px){.grid-3{grid-template-columns:repeat(2,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}}
+
+.section-light{background:var(--light)}
+.text-center{text-align:center}
+.mb-2{margin-bottom:2rem}
+
+.founder-section{background:var(--light)}
+.founder-grid{display:grid;gap:2.5rem;align-items:center}
+@media(min-width:1024px){.founder-grid{grid-template-columns:1fr 2fr}}
+.founder-img-wrap{border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.15)}
+.founder-img{width:100%;height:auto;object-fit:cover;aspect-ratio:1/1;max-width:450px;margin:0 auto}
+.founder-name{font-size:2.25rem;color:var(--blue);margin-bottom:0.5rem}
+.founder-title{color:var(--orange);font-weight:700;font-size:1.15rem;margin-bottom:1.5rem}
+.founder-bio{color:#64748B;line-height:1.8;margin-bottom:1.5rem}
+.social-links{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+.social-link{width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#FFF;transition:transform 0.3s}
+.social-link:hover{transform:translateY(-4px)}
+.social-facebook{background:#1877F2}
+.social-instagram{background:linear-gradient(45deg,#F09433,#E6683C,#DC2743,#CC2366,#BC1888)}
+.social-tiktok{background:#000}
+.social-snapchat{background:#FFFC00;color:#000}
+
+.partnership-card{background:#FFF;padding:2.5rem;border-radius:20px;box-shadow:0 8px 30px rgba(0,0,0,0.1);height:100%}
+.partnership-card h3{color:var(--blue);font-size:2rem;margin-bottom:1rem}
+.partnership-card ul{list-style:none;margin:1.5rem 0}
+.partnership-card li{padding:0.75rem 0;display:flex;align-items:center;gap:1rem;color:#64748B}
+.partnership-card li i{color:var(--teal);font-size:1.25rem}
+
+.testimonial-card{background:#FFF;padding:2rem;border-radius:20px;box-shadow:0 6px 25px rgba(0,0,0,0.08);height:100%}
+.stars{color:#FFC107;font-size:1.25rem;margin-bottom:1rem}
+.testimonial-text{color:#64748B;font-style:italic;line-height:1.7;margin-bottom:1.5rem}
+.testimonial-author{display:flex;align-items:center;gap:1rem}
+.author-avatar{width:50px;height:50px;background:linear-gradient(135deg,var(--blue),var(--teal));color:#FFF;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;flex-shrink:0}
+.author-name{font-weight:700;color:var(--dark)}
+
+.contact-grid{display:grid;gap:2.5rem}
+@media(min-width:1024px){.contact-grid{grid-template-columns:1fr 1.5fr}}
+.contact-item{display:flex;gap:1.5rem;padding:1.75rem;background:#FFF;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);margin-bottom:1.5rem}
+.contact-icon{font-size:2.5rem;color:var(--blue);flex-shrink:0}
+.contact-details h4{font-weight:700;color:var(--dark);margin-bottom:0.5rem}
+.contact-details a{color:var(--orange);font-weight:700;font-size:1.1rem}
+.form-group{margin-bottom:1.5rem}
+.form-label{display:block;font-weight:700;margin-bottom:0.5rem;color:var(--dark)}
+.form-input,.form-select,.form-textarea{width:100%;padding:1rem;border:2px solid var(--light);border-radius:12px;font-family:'Inter',sans-serif;font-size:1rem;transition:border-color 0.3s}
+.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--blue)}
+.form-textarea{resize:vertical;min-height:120px}
+.form-success{background:var(--teal);color:#FFF;padding:1.25rem;border-radius:12px;margin-bottom:1.5rem;display:none;font-weight:700}
+.form-success.active{display:block}
+
+.footer{background:var(--dark);color:#FFF;padding:3rem 0 1.5rem}
+.footer-grid{display:grid;gap:2.5rem;margin-bottom:2rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}}
+.footer h4{color:var(--orange);margin-bottom:1.25rem;font-size:1.1rem}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:0.75rem}
+.footer-links a{color:rgba(255,255,255,0.8);transition:color 0.3s;cursor:pointer}
+.footer-links a:hover{color:var(--orange)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;text-align:center;color:rgba(255,255,255,0.7);font-size:0.9rem}
+
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25D366;color:#FFF;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;box-shadow:0 6px 25px rgba(37,211,102,0.6);z-index:999;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.whatsapp-float:hover{transform:scale(1.1)}
+</style>
+</head>
+<body>
+
+<header class="header">
+<nav class="nav container">
+<img src="images/logo.svg" alt="MedVoyage" class="logo">
+<ul class="nav-menu">
+<li><a class="nav-link" data-scroll="hero">Home</a></li>
+<li><a class="nav-link" data-scroll="about">About Us</a></li>
+<li><a class="nav-link" data-scroll="services">Services</a></li>
+<li><a class="nav-link" data-scroll="reviews">Reviews</a></li>
+<li><a class="nav-link" data-scroll="partnership">Partnership</a></li>
+<li><a class="nav-link" data-scroll="contact">Contact Us</a></li>
+</ul>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+<span></span><span></span><span></span>
+</button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+<ul class="mobile-nav-links">
+<li><a data-scroll="hero">Home</a></li>
+<li><a data-scroll="about">About Us</a></li>
+<li><a data-scroll="services">Services</a></li>
+<li><a data-scroll="reviews">Reviews</a></li>
+<li><a data-scroll="partnership">Partnership</a></li>
+<li><a data-scroll="contact">Contact Us</a></li>
+</ul>
+</div>
+</header>
+
+<section class="hero" id="hero">
+<div class="container">
+<div class="hero-grid">
+<div>
+<h1>Connecting Africa to World-Class Medical Hospitals in Egypt</h1>
+<p>Experience premium medical tourism with complete support — visa assistance, hospital booking, accommodation, and expert patient care from start to finish.</p>
+<div class="hero-btns">
+<button class="btn btn-primary" data-scroll="contact">
+<i class="fas fa-calendar-check"></i> Book Free Consultation
+</button>
+<a href="https://wa.me/201032129448" target="_blank" class="btn btn-secondary">
+<i class="fab fa-whatsapp"></i> Chat on WhatsApp
+</a>
+</div>
+</div>
+<div class="hero-img">
+<img src="images/founder-1.jpg" alt="Fatima Mohammed - MedVoyage Founder" loading="eager">
+</div>
+</div>
+</div>
+</section>
+
+<section id="about" class="section-light">
+<div class="container">
+<div class="text-center mb-2">
+<h2>About MedVoyage</h2>
+<p style="color:#64748B;max-width:700px;margin:0 auto">Your trusted partner connecting Africa to Egypt's premier healthcare facilities</p>
+</div>
+<div class="grid grid-3">
+<div class="card">
+<div class="card-icon"><i class="fas fa-hospital-alt"></i></div>
+<h3>Who We Are</h3>
+<p>MedVoyage is a leading medical tourism facilitator connecting patients from across Africa to Egypt's world-class healthcare facilities with comprehensive professional support.</p>
+</div>
+<div class="card">
+<div class="card-icon"><i class="fas fa-bullseye"></i></div>
+<h3>Our Mission</h3>
+<p>To democratize access to premium healthcare by providing seamless, transparent, and affordable medical tourism services with unwavering commitment to patient care excellence.</p>
+</div>
+<div class="card">
+<div class="card-icon"><i class="fas fa-eye"></i></div>
+<h3>Our Vision</h3>
+<p>To become Africa's most trusted medical tourism partner, recognized globally for transforming lives through exceptional healthcare access and patient-centered service.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="text-center mb-2">
+<h2>Why Choose MedVoyage?</h2>
+</div>
+<div class="grid grid-4">
+<div class="card" data-scroll="services">
+<div class="card-icon"><i class="fas fa-hospital"></i></div>
+<h3>Premium Hospitals</h3>
+<p>Access to Egypt's top JCI-accredited medical facilities with cutting-edge technology</p>
+</div>
+<div class="card" data-scroll="services">
+<div class="card-icon"><i class="fas fa-user-md"></i></div>
+<h3>Expert Doctors</h3>
+<p>Internationally certified specialists with years of expertise in complex procedures</p>
+</div>
+<div class="card" data-scroll="contact">
+<div class="card-icon"><i class="fas fa-headset"></i></div>
+<h3>24/7 Support</h3>
+<p>Complete care coordination from consultation to recovery and follow-up</p>
+</div>
+<div class="card" data-scroll="contact">
+<div class="card-icon"><i class="fas fa-tags"></i></div>
+<h3>Best Value Care</h3>
+<p>Premium healthcare at affordable costs with transparent all-inclusive pricing</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="services" class="section-light">
+<div class="container">
+<div class="text-center mb-2">
+<h2>Medical Tourism Services</h2>
+<p style="color:#64748B">Comprehensive healthcare solutions for African patients</p>
+</div>
+<div class="grid grid-3">
+<div class="card" data-scroll="contact">
+<div class="card-icon"><i class="fas fa-passport"></i></div>
+<h3>Visa on Arrival</h3>
+<p>Complete Egyptian medical visa assistance with document preparation, application support, and approval tracking</p>
+</div>
+<div class="card" data-scroll="contact">
+<div class="card-icon"><i class="fas fa-stethoscope"></i></div>
+<h3>Medical Consultation</h3>
+<p>Pre-travel consultations with Egyptian specialists via telemedicine for treatment planning and cost estimates</p>
+</div>
+<div class="card" data-scroll="contact">
+<div class="card-icon"><i class="fas fa-hospital-user"></i></div>
+<h3>Hospital Booking</h3>
+<p>Direct appointments at premier hospitals with top-rated doctors including surgery scheduling and diagnostics</p>
+</div>
+<div class="card" data-scroll="contact">
+<div class="card-icon"><i class="fas fa-hotel"></i></div>
+<h3>Accommodation</h3>
+<p>Comfortable recovery stays near hospitals with professional nursing care and patient support services</p>
+</div>
+<div class="card" data-scroll="contact">
+<div class="card-icon"><i class="fas fa-plane-arrival"></i></div>
+<h3>Airport & Transport</h3>
+<p>Professional meet-and-greet with comfortable ground transportation to hospitals and accommodation</p>
+</div>
+<div class="card" data-scroll="contact">
+<div class="card-icon"><i class="fas fa-language"></i></div>
+<h3>Translation Services</h3>
+<p>Professional medical interpreters for consultations, procedures, and complete patient care coordination</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="founder-section">
+<div class="container">
+<div class="founder-grid">
+<div class="founder-img-wrap">
+<img src="images/founder-2.jpg" alt="Fatima Mohammed" class="founder-img" loading="lazy">
+</div>
+<div>
+<h2 class="founder-name">Fatima Mohammed</h2>
+<p class="founder-title">Founder & Executive Director</p>
+<div class="founder-bio">
+<p>Fatima Mohammed founded MedVoyage with a visionary mission to bridge the healthcare gap between Africa and world-class medical facilities in Egypt.</p>
+<p>With extensive experience in medical tourism and profound understanding of healthcare systems across both continents, she has built a trusted network helping thousands of African patients access life-changing treatments.</p>
+<p>Under her leadership, MedVoyage has become a beacon of hope, providing seamless, compassionate care that transcends borders and transforms lives.</p>
+</div>
+<button class="btn btn-outline" data-scroll="about">Read Full Story</button>
+<div class="social-links">
+<a href="https://www.facebook.com/fatima.muhammadjidda.37" target="_blank" class="social-link social-facebook" aria-label="Facebook">
+<i class="fab fa-facebook-f"></i>
+</a>
+<a href="https://www.instagram.com/Fatima_m_jidda" target="_blank" class="social-link social-instagram" aria-label="Instagram">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://www.tiktok.com/@Fatima_m_jidda" target="_blank" class="social-link social-tiktok" aria-label="TikTok">
+<i class="fab fa-tiktok"></i>
+</a>
+<a href="https://www.snapchat.com/add/fatima_mjidda" target="_blank" class="social-link social-snapchat" aria-label="Snapchat">
+<i class="fab fa-snapchat-ghost"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="partnership">
+<div class="container">
+<div class="text-center mb-2">
+<h2>Partnership Opportunities</h2>
+<p style="color:#64748B">Work with MedVoyage to expand your healthcare services</p>
+</div>
+<div class="grid grid-2">
+<div class="partnership-card">
+<div class="card-icon"><i class="fas fa-handshake"></i></div>
+<h3>For Travel Agencies</h3>
+<p>Partner with us to offer medical tourism packages to your clients</p>
+<ul>
+<li><i class="fas fa-check-circle"></i> Lucrative commission structure</li>
+<li><i class="fas fa-check-circle"></i> Full client support services</li>
+<li><i class="fas fa-check-circle"></i> Transparent pricing models</li>
+<li><i class="fas fa-check-circle"></i> Marketing materials provided</li>
+</ul>
+<button class="btn btn-primary" data-scroll="contact">Partner With Us</button>
+</div>
+<div class="partnership-card">
+<div class="card-icon"><i class="fas fa-clinic-medical"></i></div>
+<h3>For Clinics & Hospitals</h3>
+<p>Refer patients needing specialized care abroad with complete confidence</p>
+<ul>
+<li><i class="fas fa-check-circle"></i> Professional referral partnerships</li>
+<li><i class="fas fa-check-circle"></i> Patient relationship maintenance</li>
+<li><i class="fas fa-check-circle"></i> Direct hospital coordination</li>
+<li><i class="fas fa-check-circle"></i> Complete follow-up care</li>
+</ul>
+<button class="btn btn-primary" data-scroll="contact">Join Our Network</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="reviews" class="section-light">
+<div class="container">
+<div class="text-center mb-2">
+<h2>Patient Testimonials</h2>
+<p style="color:#64748B">Real stories from patients who trusted MedVoyage</p>
+</div>
+<div class="grid grid-2">
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p class="testimonial-text">"MedVoyage made my medical journey to Egypt incredibly smooth. Every detail was handled professionally, from visa to recovery. Truly exceptional care."</p>
+<div class="testimonial-author">
+<div class="author-avatar">A</div>
+<div>
+<p class="author-name">Amina K.</p>
+<p style="color:#64748B;font-size:0.9rem">Lagos, Nigeria</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p class="testimonial-text">"Outstanding service from start to finish. They connected me with top specialists and ensured I felt comfortable throughout my entire stay in Egypt."</p>
+<div class="testimonial-author">
+<div class="author-avatar">K</div>
+<div>
+<p class="author-name">Kwame O.</p>
+<p style="color:#64748B;font-size:0.9rem">Accra, Ghana</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p class="testimonial-text">"Professional, caring, and reliable. The translation services made me feel at home. I'm grateful for the life-changing treatment I received."</p>
+<div class="testimonial-author">
+<div class="author-avatar">F</div>
+<div>
+<p class="author-name">Fatima A.</p>
+<p style="color:#64748B;font-size:0.9rem">Khartoum, Sudan</p>
+</div>
+</div>
+</div>
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p class="testimonial-text">"From consultation to follow-up, MedVoyage demonstrated unwavering commitment to patient care. A journey of hope and healing."</p>
+<div class="testimonial-author">
+<div class="author-avatar">I</div>
+<div>
+<p class="author-name">Ibrahim M.</p>
+<p style="color:#64748B;font-size:0.9rem">Nairobi, Kenya</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="text-center mb-2">
+<h2>Get in Touch</h2>
+<p style="color:#64748B">Ready to start your healthcare journey? Contact us for a free consultation</p>
+</div>
+<div class="contact-grid">
+<div>
+<div class="contact-item">
+<div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+<div class="contact-details">
+<h4>Business WhatsApp</h4>
+<a href="https://wa.me/201116537396" target="_blank">+20 111 653 7396</a>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+<div class="contact-details">
+<h4>CEO Direct Line</h4>
+<a href="https://wa.me/201032129448" target="_blank">+20 103 212 9448</a>
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-icon"><i class="fas fa-envelope"></i></div>
+<div class="contact-details">
+<h4>Email</h4>
+<a href="mailto:info@medvoyage.me">info@medvoyage.me</a>
+</div>
+</div>
+<div style="background:#FFF;padding:1.75rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08)">
+<h4 style="margin-bottom:1rem">Follow Us</h4>
+<div class="social-links">
+<a href="https://www.tiktok.com/@medv.oyage" target="_blank" class="social-link social-tiktok">
+<i class="fab fa-tiktok"></i>
+</a>
+<a href="https://www.instagram.com/medv.oyage" target="_blank" class="social-link social-instagram">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://www.facebook.com/share/1Tbh3cbF2r/" target="_blank" class="social-link social-facebook">
+<i class="fab fa-facebook-f"></i>
+</a>
+<a href="https://www.snapchat.com/add/medvoyage" target="_blank" class="social-link social-snapchat">
+<i class="fab fa-snapchat-ghost"></i>
+</a>
+</div>
+</div>
+</div>
+<div style="background:#FFF;padding:2.5rem;border-radius:20px;box-shadow:0 8px 35px rgba(0,0,0,0.1)">
+<h3 style="margin-bottom:1.5rem">Send Us a Message</h3>
+<div class="form-success" id="formSuccess">
+<i class="fas fa-check-circle"></i> Thank you! Your message has been sent. We'll contact you within 24 hours.
+</div>
+<form id="contactForm">
+<div class="form-group">
+<label class="form-label">Full Name *</label>
+<input type="text" class="form-input" name="name" required placeholder="Enter your full name">
+</div>
+<div class="form-group">
+<label class="form-label">Email *</label>
+<input type="email" class="form-input" name="email" required placeholder="your.email@example.com">
+</div>
+<div class="form-group">
+<label class="form-label">Phone *</label>
+<input type="tel" class="form-input" name="phone" required placeholder="+234 XXX XXX XXXX">
+</div>
+<div class="form-group">
+<label class="form-label">Nationality *</label>
+<select class="form-select" name="nationality" required>
+<option value="">Select your country</option>
+<option>Nigeria</option>
+<option>Ghana</option>
+<option>Kenya</option>
+<option>Sudan</option>
+<option>Tanzania</option>
+<option>Uganda</option>
+<option>Ethiopia</option>
+<option>South Africa</option>
+<option>Other</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Service Interested In *</label>
+<select class="form-select" name="service" required>
+<option value="">Select a service</option>
+<option>Visa Assistance</option>
+<option>Medical Consultation</option>
+<option>Hospital Booking</option>
+<option>Accommodation</option>
+<option>Airport & Transport</option>
+<option>Complete Package</option>
+<option>General Inquiry</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label">Message *</label>
+<textarea class="form-textarea" name="message" required placeholder="Tell us about your medical needs..."></textarea>
+</div>
+<button type="submit" class="btn btn-primary" style="width:100%">
+<i class="fas fa-paper-plane"></i> Send Message
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div>
+<img src="images/logo.svg" alt="MedVoyage" style="height:45px;margin-bottom:1.5rem;filter:brightness(0) invert(1)">
+<p style="color:rgba(255,255,255,0.8);margin-bottom:1rem">Premium medical tourism connecting Africa to Egypt's world-class healthcare excellence.</p>
+<p style="color:var(--orange);font-style:italic;font-weight:700">"Connected with Africa"</p>
+<div class="social-links" style="margin-top:1.5rem">
+<a href="https://www.tiktok.com/@medv.oyage" target="_blank" class="social-link social-tiktok">
+<i class="fab fa-tiktok"></i>
+</a>
+<a href="https://www.instagram.com/medv.oyage" target="_blank" class="social-link social-instagram">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://www.facebook.com/share/1Tbh3cbF2r/" target="_blank" class="social-link social-facebook">
+<i class="fab fa-facebook-f"></i>
+</a>
+<a href="https://www.snapchat.com/add/medvoyage" target="_blank" class="social-link social-snapchat">
+<i class="fab fa-snapchat-ghost"></i>
+</a>
+</div>
+</div>
+<div>
+<h4>Quick Links</h4>
+<ul class="footer-links">
+<li><a data-scroll="hero">Home</a></li>
+<li><a data-scroll="about">About Us</a></li>
+<li><a data-scroll="services">Services</a></li>
+<li><a data-scroll="reviews">Reviews</a></li>
+<li><a data-scroll="partnership">Partnership</a></li>
+<li><a data-scroll="contact">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4>Services</h4>
+<ul class="footer-links">
+<li><a data-scroll="services">Visa Assistance</a></li>
+<li><a data-scroll="services">Medical Consultation</a></li>
+<li><a data-scroll="services">Hospital Booking</a></li>
+<li><a data-scroll="services">Accommodation</a></li>
+<li><a data-scroll="services">Airport Services</a></li>
+<li><a data-scroll="services">Translation</a></li>
+</ul>
+</div>
+<div>
+<h4>Contact</h4>
+<ul class="footer-links">
+<li><a href="mailto:info@medvoyage.me">info@medvoyage.me</a></li>
+<li><a href="https://wa.me/201116537396" target="_blank">+20 111 653 7396</a></li>
+<li><a href="https://wa.me/201032129448" target="_blank">+20 103 212 9448</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 MedVoyage. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+
+<a href="https://wa.me/201032129448" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+// Smooth scroll functionality
+function scrollToSection(sectionId){
+const section=document.getElementById(sectionId);
+if(section){
+const offset=70;
+const elementPosition=section.getBoundingClientRect().top;
+const offsetPosition=elementPosition+window.pageYOffset-offset;
+window.scrollTo({top:offsetPosition,behavior:'smooth'});
+document.getElementById('mobileNav').classList.remove('active');
+}
+}
+
+// Navigation click handlers
+document.querySelectorAll('[data-scroll]').forEach(el=>{
+el.addEventListener('click',function(e){
+e.preventDefault();
+const target=this.getAttribute('data-scroll');
+scrollToSection(target);
+});
+});
+
+// Mobile menu toggle
+const menuToggle=document.getElementById('menuToggle');
+const mobileNav=document.getElementById('mobileNav');
+if(menuToggle){
+menuToggle.addEventListener('click',()=>{
+mobileNav.classList.toggle('active');
+});
+}
+
+// Form submission
+const contactForm=document.getElementById('contactForm');
+const formSuccess=document.getElementById('formSuccess');
+if(contactForm){
+contactForm.addEventListener('submit',function(e){
+e.preventDefault();
+formSuccess.classList.add('active');
+contactForm.reset();
+setTimeout(()=>{
+formSuccess.classList.remove('active');
+scrollToSection('hero');
+},3000);
+});
+}
+
+// Card click to scroll
+document.querySelectorAll('.card[data-scroll]').forEach(card=>{
+card.addEventListener('click',function(){
+const target=this.getAttribute('data-scroll');
+scrollToSection(target);
+});
+});
+
+console.log('MedVoyage website loaded ✓');
+</script>
+</body>
+</html>
